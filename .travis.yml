@@ -1,0 +1,13 @@
+sudo: required
+language: generic
+
+services: 
+   - docker
+
+before_install:
+
+  - docker build sayedoynat/docker-react -f dockerfile.dev .
+
+
+script: 
+  - docker run -e CI=true sayedoynat/docker-react npm run test
